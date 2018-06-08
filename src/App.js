@@ -1,8 +1,8 @@
 import React from 'react';
-import ArticleList from './components/Article/ArticleList';
-import { articles } from './data/fixtures';
-import logo from './img/logo.svg';
-import './css/App.css';
+import ArticleList from 'components/Article/ArticleList';
+import { articles } from 'data/fixtures';
+import logo from 'img/logo.svg';
+import 'css/App.css';
 
 const App = () =>  {
   return (
