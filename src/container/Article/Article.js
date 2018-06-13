@@ -1,6 +1,5 @@
 import React from 'react';
 import CommentsList from 'container/Comments/CommentsList';
-import toggleOpen from 'decorators/toggleOpen';
 
 function  Article ({ 
         article, 
@@ -25,4 +24,4 @@ function  Article ({
     )
 }
 
-export default toggleOpen(Article);
+export default Article;
