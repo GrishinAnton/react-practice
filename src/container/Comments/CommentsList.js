@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import toggleOpen from 'decorators/toggleOpen';
 
 function CommentList({ comments = [], isOpen, toggleOpen }) {

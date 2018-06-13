@@ -5,14 +5,14 @@ function  Article ({
         article, 
         article: { comments }, 
         isOpen, 
-        toggleOpen
-    })  { 
+        toggleOpenArticle
+    })  {        
         
     return (
         <div>
             <h3>{article.title}</h3>
 
-            <button onClick={toggleOpen}>
+            <button onClick={toggleOpenArticle}>
                 {isOpen ? 'close' : 'open'}
             </button> 
 
