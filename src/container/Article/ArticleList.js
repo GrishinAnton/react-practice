@@ -3,6 +3,7 @@ import Article from 'container/Article/Article';
 import accordion from '../../decorators/accordion';
 
 
+
 function ArticleList({ article, toggleOpenArticle, id}) {
 
     const articleElements =

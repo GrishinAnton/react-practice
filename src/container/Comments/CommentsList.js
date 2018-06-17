@@ -1,5 +1,6 @@
 import React from 'react';
 import toggleOpen from 'decorators/toggleOpen';
+import AddComments from 'container/Comments/AddComments'
 
 function CommentList({ comments = [], isOpen, toggleOpen }) {
     
@@ -17,10 +18,12 @@ function CommentList({ comments = [], isOpen, toggleOpen }) {
 
             <ul>
                 { isOpen && CommentsElements}
+                <label>Введите данные</label><br />                
+                <AddComments />
             </ul>
         </div> 
        
     )
 }
 
-export default toggleOpen(CommentList)
+export default toggleOpen(CommentList);
