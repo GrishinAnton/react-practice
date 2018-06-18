@@ -1,6 +1,6 @@
 import React from 'react';
 import CommentsList from 'container/Comments/CommentsList';
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import 'css/animation.css';
 
 function  Article ({ 
@@ -17,15 +17,16 @@ function  Article ({
             <button onClick={toggleOpenArticle}>
                 {isOpen ? 'close' : 'open'}
             </button> 
-
-                {/* <CSSTransition
-                    component="span"
-                    classNames="example"   
-                    timeout={1000}           
-                >     */}
-                {isOpen &&<section>{article.text}</section>} 
-                {/* </CSSTransition> */}
-            
+                <TransitionGroup className="111">
+                    {isOpen && <CSSTransition
+                        component="span"
+                        classNames="example"   
+                        timeout={300}           
+                    >    
+                        <section>{article.text}</section>
+                    </CSSTransition>} 
+                </TransitionGroup>
+                
 
             <h3>Comments</h3>
             

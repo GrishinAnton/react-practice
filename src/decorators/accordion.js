@@ -1,17 +1,13 @@
-import React, {Component as ReactComponent} from 'react';
+import React from 'react';
 
-export default (OriginalComponent) => class WrappedComponent extends ReactComponent {
+export default (OriginalComponent) => class Accordion extends React.Component {
 
     state = {
         id: null
     }
 
-    toggleOpenArticle = id => ev => {
-
-        if (id === this.state.id){
-            return this.setState({ id: null })
-        }        
-        this.setState({ id })
+    toggleOpenArticle = id => ev => {    
+        this.setState({ id: id === this.state.id ? null : id })
     }  
 
     render() {
@@ -20,8 +16,8 @@ export default (OriginalComponent) => class WrappedComponent extends ReactCompon
 
             <OriginalComponent 
                 {...this.props} 
-                id={this.state.id} 
-                toggleOpenArticle={this.toggleOpenArticle}
+                id = {this.state.id} 
+                toggleOpenArticle = {this.toggleOpenArticle}
             />
         ) 
     }
