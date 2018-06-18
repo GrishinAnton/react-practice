@@ -14,14 +14,22 @@ export default class AddComments extends React.Component {
         this.setState({[type]: ev.target.value})
     }
 
-    getValidClass = type => this.state[type].length < limit[type].min || this.state[type].length > limit[type].max ? 'error' : ''
+    getValidClass = type => this.state[type].length && this.state[type].length < limit[type].min ? 'field-error' : ''
 
     render() {
 
         return (
             <div>
-                <input type="text" className={this.getValidClass('name')} placeholder="Введите Ваше имя" value={this.state.name} onChange={this.onChange('name')} /><br />
-                <input type="text" className={this.getValidClass('value')} placeholder="Введите комментарий" value={this.state.value} onChange={this.onChange('value')} />
+                <input type="text" 
+                    className={this.getValidClass('name')} 
+                    placeholder="Введите Ваше имя" 
+                    value={this.state.name} 
+                    onChange={this.onChange('name')} /><br />
+                <input type="text" 
+                    className={this.getValidClass('value')} 
+                    placeholder="Введите комментарий" 
+                    value={this.state.value} 
+                    onChange={this.onChange('value')} />
             </div>
         )        
     }  
