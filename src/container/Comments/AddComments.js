@@ -5,38 +5,35 @@ import 'css/formValidation.css';
 export default class AddComments extends React.Component {
 
     state = {
-        inputValue: '',
-        inputName: '',
-        errorValidInput: '',
-        errorValidName: ''
+        name: '',
+        value: ''
     }
 
-    onChangeName = ev => {
-        if(ev.target.value.length < 5 || ev.target.value.length > 15){
-            this.setState({errorValidName: 'error'})
-        } else {
-            this.setState({errorValidName: ''})
-        }
-        this.setState({inputValue: ev.target.value})
+    onChange = type => ev => {    
+        if(ev.target.value.length > limit[type].max) return
+        this.setState({[type]: ev.target.value})
     }
 
-    onChangeValue = ev => {
-        if(ev.target.value.length < 20 || ev.target.value.length > 50){
-            this.setState({errorValidInput: 'error'})
-        } else {
-            this.setState({errorValidInput: ''})
-        }
-        this.setState({inputName: ev.target.value})
-    }
+    getValidClass = type => this.state[type].length < limit[type].min || this.state[type].length > limit[type].max ? 'error' : ''
 
     render() {
 
         return (
             <div>
-                <input type="text" className={this.state.errorValidName} placeholder="Введите Ваше имя" value={this.inputName} onChange={this.onChangeName} /><br />
-                <input type="text" className={this.state.errorValidInput} placeholder="Введите комментарий" value={this.inputValue} onChange={this.onChangeValue} />
+                <input type="text" className={this.getValidClass('name')} placeholder="Введите Ваше имя" value={this.state.name} onChange={this.onChange('name')} /><br />
+                <input type="text" className={this.getValidClass('value')} placeholder="Введите комментарий" value={this.state.value} onChange={this.onChange('value')} />
             </div>
         )        
-    }    
+    }  
+}
 
+const limit = {
+    name: {
+        min: 5,
+        max: 15
+    },
+    value: {
+        min: 20,
+        max: 50
+    }
 }
